@@ -4,14 +4,14 @@ document.addEventListener('DOMContentLoaded', (e) => {
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* Hide the broken-image icon until real photos are added to /images */
+  // Image placeholder 
   $$('img').forEach(img => {
     const flag = () => img.classList.add('is-missing');
     img.addEventListener('error', flag);
     if (img.complete && img.naturalWidth === 0 && img.currentSrc) flag();
   });
 
-  /* ---------- Navbar ---------- */
+  /* Navbar */
   const burger = $('.burger'), menu = $('#menu'), links = $$('a', menu);
   const toggleMenu = open => {
     menu.classList.toggle('open', open);
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   document.addEventListener('keydown', e => { if (e.key === 'Escape') toggleMenu(false); });
   document.addEventListener('click', e => { if (!e.target.closest('.nav')) toggleMenu(false); });
 
-  /* ---------- Scroll: active nav + collage (one rAF-throttled handler) ---------- */
+  /* Scroll: active nav + collage (one rAF-throttled handler) */
   const sections = ['top', 'services', 'visit', 'contact'].map(id => document.getElementById(id));
   const collage = $('#collage');
   let ticking = false;
@@ -49,9 +49,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
   addEventListener('scroll', requestTick, { passive: true });
   addEventListener('resize', requestTick, { passive: true });
 
-  /* ---------- Product slider ----------
-     Cards keep a fixed size. Only the active card gets transform: scale(1.2)
-     via CSS (.is-active), so the layout never shifts. JS just centres the track. */
+  /* Product slider */
   const vp = $('#vp'), track = $('#track'), slides = $$('.sl', track);
   const prev = $('#prev'), next = $('#next'), count = $('#count');
   let index = 0, startX = null;

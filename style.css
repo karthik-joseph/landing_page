@@ -1075,7 +1075,7 @@ footer{
   }
 }
 
-/* Short landscape screens: keep the hero from becoming excessively tall */
+/* short landscape screens */
 @media (max-width: 767px) and (orientation: landscape) {
   .hero-in {
     min-height: auto;
@@ -1092,7 +1092,6 @@ footer{
   }
 }
 
-/* Prevent hover-only styling from feeling sticky on touch devices */
 @media (hover: none) and (pointer: coarse) {
   .menu a:hover,
   .ctl button:hover,
@@ -1101,11 +1100,7 @@ footer{
   }
 }
 
-
-/* =========================
-   Motion and reveal animations
-   ========================= */
-
+/* Motion and reveal animations */
 /* Elements are animated only after JavaScript marks them for reveal. */
 .reveal-ready .reveal-on-scroll {
   opacity: 0;
@@ -1159,11 +1154,7 @@ footer{
   }
 }
 
-/* =========================
-   Mobile visit carousel fix
-   Native horizontal swipe; no pagination buttons.
-   First and last cards can both snap to the centre.
-   ========================= */
+/* Mobile view / Small tablet */
 @media (max-width: 767px) {
   .visit {
     overflow: hidden;
@@ -1191,7 +1182,7 @@ footer{
     -webkit-overflow-scrolling: touch;
     touch-action: pan-x pan-y;
     scrollbar-width: none;
-    /* Disable the old scroll-driven collage spread effect on mobile. */
+    /* Disabling: old scroll-driven collage spread effect */
     --p: 1;
   }
 
@@ -1248,7 +1239,6 @@ footer{
   }
 }
 
-/* Keep motion comfortable for visitors who request reduced motion. */
 @media (prefers-reduced-motion: reduce) {
   .reveal-ready .reveal-on-scroll,
   .reveal-ready .reveal-on-scroll.is-visible,
